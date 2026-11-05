@@ -1,0 +1,228 @@
+/* =========================================
+   ESTILOS GENERALES Y PALETA MORADA
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --morado-oscuro: #4A148C;
+    --morado-primario: #7B1FA2;
+    --morado-claro: #E1BEE7;
+    --morado-fondo: #F3E5F5;
+    --texto-oscuro: #333333;
+    --blanco: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--morado-fondo);
+    color: var(--texto-oscuro);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centra el contenido verticalmente */
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    background-color: var(--blanco);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(74, 20, 140, 0.15);
+}
+
+/* =========================================
+   TIPOGRAFÍA Y TÍTULOS
+   ========================================= */
+h1, h2, h3 {
+    color: var(--morado-oscuro);
+    margin-bottom: 15px;
+}
+
+h2 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   FORMULARIOS (LOGIN Y REGISTRO)
+   ========================================= */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+label {
+    font-weight: 600;
+    color: var(--morado-primario);
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--morado-claro);
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+    outline: none;
+    border-color: var(--morado-primario);
+    box-shadow: 0 0 8px rgba(123, 31, 162, 0.3);
+}
+
+button, .btn {
+    background-color: var(--morado-primario);
+    color: var(--blanco);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+button:hover, .btn:hover {
+    background-color: var(--morado-oscuro);
+    transform: translateY(-2px);
+}
+
+p a {
+    color: var(--morado-primario);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
+   MENSAJES FLASH (ALERTAS)
+   ========================================= */
+.flash {
+    background-color: #FFCDD2;
+    color: #B71C1C;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+    border-left: 5px solid #B71C1C;
+}
+
+/* =========================================
+   PÁGINA DE PRODUCTOS (VIP)
+   ========================================= */
+.header-vip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--morado-claro);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.header-vip h2 {
+    margin: 0;
+    text-align: left;
+}
+
+.header-vip a {
+    background-color: transparent;
+    color: var(--morado-primario);
+    border: 2px solid var(--morado-primario);
+    padding: 8px 15px;
+    border-radius: 8px;
+}
+
+.header-vip a:hover {
+    background-color: var(--morado-primario);
+    color: var(--blanco);
+}
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: var(--blanco);
+    border: 1px solid var(--morado-claro);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(123, 31, 162, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; /* Para que las imágenes no se deformen */
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #666;
+    flex-grow: 1; /* Empuja el precio y el botón hacia abajo */
+}
+
+.card strong {
+    display: block;
+    font-size: 1.4rem;
+    color: var(--morado-oscuro);
+    margin: 15px 0;
+}
+
+.card .btn-comprar {
+    width: 100%;
+    margin-top: auto;
+}

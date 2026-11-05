@@ -1,16 +1,24 @@
 {% extends "base.html" %}
+
 {% block content %}
-    <h2>Bienvenido {{ current_user.username }} - Zona VIP</h2>
-    <p>Estas son nuestras deliciosas tortas exclusivas:</p>
-    <a href="{{ url_for('logout') }}">Cerrar Sesión</a>
-    <hr>
+    <div class="header-vip">
+        <h2>Hola, {{ current_user.username }} 👋</h2>
+        <a href="{{ url_for('logout') }}">Cerrar Sesión</a>
+    </div>
     
-    {% for torta in tortas %}
-        <div class="card">
-            <img src="{{ torta.imagen_url }}" alt="{{ torta.nombre }}" width="100%">
-            <h3>{{ torta.nombre }}</h3>
-            <p>{{ torta.descripcion }}</p>
-            <strong>Precio: ${{ torta.precio }}</strong>
-        </div>
-    {% endfor %}
+    <p style="text-align: center; margin-bottom: 30px;">Estas son nuestras deliciosas tortas exclusivas para clientes VIP:</p>
+    
+    <div class="grid-productos">
+        {% for torta in tortas %}
+            <div class="card">
+                <img src="{{ torta.imagen_url }}" alt="{{ torta.nombre }}">
+                <h3>{{ torta.nombre }}</h3>
+                <p>{{ torta.descripcion }}</p>
+                <strong>${{ torta.precio }}</strong>
+                <a href="{{ url_for('comprar', producto_id=torta.id) }}" class="btn btn-comprar">
+                    Comprar 🛒
+                </a>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
